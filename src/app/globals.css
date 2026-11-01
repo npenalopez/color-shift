@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+  --font-grotesk: var(--font-space-grotesk);
+  /* Dimmest interface text: 5.73:1 on the panel. Tailwind's neutral-500 fails AA there. */
+  --color-faint: #8a8a8a;
+}
+
+/* Slider: a gradient track drawn by the component, with a ring thumb. */
+.channel-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--track);
+  outline: none;
+  cursor: pointer;
+}
+
+.channel-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: var(--thumb);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.4), 0 1px 4px rgb(0 0 0 / 0.4);
+}
+
+.channel-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--thumb);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.4), 0 1px 4px rgb(0 0 0 / 0.4);
+}
+
+.channel-slider:focus-visible {
+  box-shadow: 0 0 0 2px #0a0a0a, 0 0 0 4px #fff;
+}
+
+.stage {
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    transition: none;
+  }
+}
